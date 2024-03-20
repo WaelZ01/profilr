@@ -1,3 +1,12 @@
+:root{
+    --bgColor:#232323;
+    --whiteColor:#ffffff;
+    --blackColor:#000000;
+    --yellowColor: #ff0;
+    --grayColor: #f0f0f0;
+ }
+
+
 * {
     box-sizing: border-box;
 }
@@ -5,7 +14,10 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(176, 157, 62);
+    /* background-image: url("./assets/vincentiu-solomon-ln5drpv_ImI-unsplash.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .navbar {
@@ -13,8 +25,10 @@ body {
     position: relative;
     justify-content: space-between;
     align-items: center;
-    background-color: #168a46;
     color: white;
+    background-color: brown;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px)
 }
 
 .logo{
@@ -59,7 +73,7 @@ body {
 .toggle-button .bar {
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
@@ -71,6 +85,7 @@ body {
 
     .toggle-button {
         display: flex;
+        margin: 10px;
     }
 
     .navbar-links {
@@ -97,6 +112,42 @@ body {
 }
 
 
+@media (max-width: 600px) {
+  .navbar {
+    width: 100%;
+
+  }
+
+  .toggle-button {
+      display: flex;
+      margin: 10px;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+}
+
+
+
 
 
 /* about page */
@@ -106,6 +157,8 @@ body {
     max-width: 800px;
     width: 100%;
     padding: 0 20px;
+    height: 100vh;
+
 }
 .aboutPage {
     display:grid;
@@ -124,6 +177,7 @@ body {
 .hero-header{
     font-size: 45px;
     text-decoration: underline double;
+    color: #f0f0f0;
 }
 .description {
     flex-grow: 1; /* Take remaining space */
@@ -145,3 +199,200 @@ body {
 }
 
 }
+
+
+
+/* skills */
+.skill-bars{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    margin: 100px;
+
+  }
+  .skills-header{
+    text-align: center;
+    padding-top: 100px;
+  }
+
+.group1 {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.group2{
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+  .pBar{
+    margin: 20px 0;
+    padding: 8px 0;
+  }
+  .pBar:first-child{
+    margin-top: 0px;
+  }
+
+
+  .info{
+    margin-bottom: 5px;
+  }
+  .info span{
+    font-weight: 500;
+    font-size: 20px; opacity: 0;
+    animation: showText 0.5s 1s linear forwards;
+  }
+  @keyframes showText {
+    100%{
+      opacity: 1;
+    }
+  }
+  .progress-line{
+    height: 10px; width: 100%;
+    background: #f0f0f0; position: relative;
+    transform: scaleX(0); transform-origin: left;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
+                0 1px rgba(255,255,255,0.8);
+    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+  }
+  .progress-line span{
+    height: 100%; position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: #100404;
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+  }
+  .progress-line span::before{
+    position: absolute; content: "";
+    top: -10px; right: 0;
+    height: 0; width: 0; opacity: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: #000;
+    animation: showText2 0.5s 1.5s linear forwards;
+  }
+  .progress-line span::after{
+    position: absolute; top: -28px;
+    right: 0; font-weight: 500;
+    background: #000;
+    color: #fff; opacity: 0;
+    padding: 1px 8px;
+    font-size: 18px;
+    border-radius: 3px;
+    animation: showText2 0.5s 1.5s linear forwards;
+  }
+  @keyframes animate {
+    100%{
+      transform: scaleX(1);
+    }
+  }
+  .html span{
+    width: 89%;
+  }
+  .css span{
+    width: 92%;
+  }
+  .JavaScript span{
+    width: 75%;
+  }
+  .react span{
+    width: 80%;
+  }
+  .mongoDB span{
+    width: 75%;
+  }
+  .github span{
+    width: 80%;
+  }
+  .python span{
+    width: 65%;
+  }
+  .mysql span{
+    width: 60%;
+  }
+  
+  @keyframes showText2 {
+    100%{
+      opacity: 1;
+    }
+  }
+  .html span::after{
+    content: "89%";
+  }
+
+  .css ::after{
+    content: "92%";
+  }
+  .JavaScript span::after{
+    content: "75%";
+  }
+  .react span::after{
+    content: "80%";
+  }
+  .mongoDB span::after{
+    content:"75%";
+  }
+  .github span::after{
+    content: "80%";
+  }
+  .python span::after{
+    content: "65%";
+  }
+  .mysql span::after{
+    content: "60%";
+  }
+
+
+
+
+
+  /* Media Query */
+  /* For tablet */
+  @media screen and (max-width:900px){
+    h1{
+      padding-top: 100px;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .skill-bars{
+    height: auto;
+    display: inline-block;
+    width: 72%; 
+    background: #fff;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    }
+    .group1{
+      flex-direction: column;
+    }
+
+
+  }
+  
+  /* For mobile */
+  @media screen and (max-width :600px) {
+    h1{
+      font-size: 1rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 3px 4px black;
+    }
+    .skill-bars{
+      padding: 10px 10px;
+      width: 450px; 
+      background: #fff;
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    
+    }
+    
+  }
