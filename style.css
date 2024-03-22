@@ -109,7 +109,7 @@ body {
 }
 
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   .navbar {
     width: 100%;
 
@@ -141,16 +141,10 @@ body {
   .navbar-links.active {
       display: flex;
   }
-} */
-
-
-@media screen and ( min-width:350px) {
-
-  .navbar{
-    width:200%;
-  }
-  
 }
+
+
+
 
 
 /* about page */
@@ -396,12 +390,18 @@ body {
   
     }
     .skill-bars{
-      padding: 10px 10px;
-      width: 450px; 
+      padding: 20px 20px;
+      width: 85%;
+      margin: 0; 
+      margin: 0px 0 0 42px;
+
+
       background: #fff;
       box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
       border-radius: 8px;
-    
+    }
+    .dev-image{
+      height: 200px;
     }
     
   }
@@ -479,14 +479,14 @@ body {
   font-size: 14px;
 }
 .social-icons a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 24px;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
 }
 
 .social-icons a:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
