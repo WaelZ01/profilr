@@ -3,135 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+
+    
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Wael Alaa | Web Developer</title>
 </head>
 <body>
 
     <!-- Navbar Section -->
-    <nav class="navbar">
-        <div class="logo">Wael Alaa</div>
+  
 
-        <a href="#" class="toggle-button">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="#" id="about">About</a></li>
-            <li><a href="#" id="skills">Skills</a></li>
-            <li><a href="#" id="projects">Projects</a></li>
-            <li><a href="#" id="contacts">Contacts</a></li>
 
-          </ul>
-        </div>
-      </nav>
+      <header class="header">
+        <a href="#" class="logo">Wael Alaa</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">ABOUT</a>
+            <a href="#services">SKILLS</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+            <button type="button" aria-label="toggle theme" class="btn btn--icon">
+                <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+              </button>
+      
+        </nav>
+    </header>
 
+
+    <section class="home" id="home">  
+        <div class="home-img">
+          <img class="my__image" src="./assets/IMG_20230704_065817_388.jpg" alt="">
+      </div>
+      <div class="home-content">
+          <h3>Hello,there</h3>
+          <h1>I'm Wael</h1>
+          <h3>And I'm a <span class="multiple-text">Frontend developer</span></h3>
+      </div>
+
+  </section>
 
       <!--About section  -->
-      
-  <section class="aboutPage-contanier">
-<div class="aboutPage">
-        <div>
-            <img class="hero-img" src="./assets/IMG_20230704_065817_388.jpg" alt="">
-        </div>
-    
-    <div class="description">
-        <h2 class="hero-header">About Me</h2>
-        <p>
-         Hey there! Welcome to my portfolio. I'm Wael Alaa,
-          a 22-year-old web developer excited to showcase my work and skills.
-           I have a passion for crafting websites that are not only visually appealing but also user-friendly
-            and functional. With my expertise in HTML, CSS, and JavaScript, I bring designs to life and create
-         seamless online experiences. Whether it's building responsive layouts or adding interactive features, I'm dedicated to delivering high-quality results. Beyond coding, I enjoy staying updated on the latest web trends and technologies to continually improve my craft. Take a look around and see how I can help bring your web projects to life! Feel free to reach out—I'm always eager to collaborate and create something awesome together.</p>
+      <section class="about" id="about">
+            <div class="about-img">
+                <img src="./assets/undraw_coding_re_iv62.svg" alt="">
+            </div>
+            <div class="about-content">
+                <h2 class="heading">About<span>Me</span></h2>
+                <h3>Web Developer</h3>
+                <p>
+                    Hello everyone! welcome to my portfolio ,I am wael and I am 22 yearws of age ,
+                    I am a Frontend developer with a passion for creating intuitive and user-friendly websites.
+                    I specialize in HTML, CSS, and JavaScript, and enjoy turning complex ideas into simple.
+                    My attention to detail, creativity, and problem-solving skills make me a valuable asset to any team.
+                    Let's work together to bring your vision to life
+                </p>
+            </div>
+        </section>
+
+<!-- <section class="skills" id="skills">
+    <h3 class="skills-header">My Top Skills </h3>
+
+    <div class="skills-container">
+<div class="skill-group1">
+    <div class="icons">
+        <svg   xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="144" height="144" viewBox="0 0 48 48">
+            <path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
+            </svg>
+    </div>
+
+    <div class="icons">
+        <img  
+         src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="">
+    </div>
+
+    <div class="icons">
+        <img
+         src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" alt="">
+    </div>
+
+    <div class="icons">
+        <img  style="height: 100px;" 
+        src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="">
     </div>
 </div>
-    </section>
 
-    <!-- Skills -->
 
-    <section id="skills" class="skills">
+<div class="skill-group2">
+    <div class="icons">
+        <img 
+        style="height: 100px;" 
+        src="https://www.vectorlogo.zone/logos/python/python-horizontal.svg" alt="">
+    </div>
 
-        <h1 class="skills-header">
-            My Skills    
-        </h1>
+    <div class="icons">
+        <img
+        style="height: 100px;" 
+        src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg" alt="">
+    </div>
+
+    <div class="icons">
+        <img
+        style="height: 100px;" 
+        src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" alt="">
+    </div>
+    
+    <div class="icons">
+        <img 
+        style="height: 100px;"    
+        src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="">
+    </div>
+
+
+
+</div>
+</div>
+
+
+</section> -->
+
+
+
+<section class="skills" id="skills">
+    <h3 class="skills-heading">My Top<span>Skills</span></h2>
+
+        <div class="skills-section">
+            <ul class="skills-list">
+
+                <div class="group1">
+                    <li><img src="./assets/icons/html.png" alt="HTML"></li>
+                    <li><img src="./assets/icons/css.png" alt="CSS"></li>
+                    <li><img src="./assets/icons/js.png" alt="JavaScript"></li>
+                    <li><img src="./assets/icons/react.png" alt="React"></li>
+                </div>
+
+                <div class="group2">
+                    <li><img src="./assets/icons/mongo.png" alt="MongoDB"></li>
+                    <li><img src="./assets/icons/python.png" alt="Python"></li>
+                    <li><img src="./assets/icons/ex.png" alt="Express.js"></li>
+                    <li><img src="./assets/icons/node.png" alt="Node.js"></li>
+                </ul>
+        </div>
+</section>
 
         
 
-        <div class="skill-bars">
-
-          
-
-            <div class="group1">
-              <img
-              class="dev-image"
-              src="./assets/icons/mongoexpress.png" 
-              alt="">
 
 
-            <div class="pBar">
-              <div class="info"> <span>HTML</span> </div>
-              <div class="progress-line html"> <span></span> </div>
-            </div>
 
-            <div class="pBar">
-              <div class="info"> <span>CSS</span> </div>
-              <div class="progress-line css"> <span></span> </div>
-            </div>
 
-            <div class="pBar">
-              <div class="info"> <span>Java Script</span> </div>
-              <div class="progress-line JavaScript"> <span></span> </div>
-            </div>
-            <div class="pBar">
-                <div class="info"> <span>My SQL</span> </div>
-                <div class="progress-line mysql"> <span></span> </div>
-              </div>
-              
-              
 
-        </div>
-        <div class="group2">
-          <img
-          class="dev-image"
-          src="./assets/icons/Capture-removebg-preview.png" alt="">
 
-            <div class="pBar">
-              <div class="info"> <span>React</span> </div>
-              <div class="progress-line react"> <span></span> </div>
-            </div>
 
-            <div class="pBar">
-                <div class="info"> <span>MongoDB</span> </div>
-                <div class="progress-line mongoDB"> <span></span> </div>
-            </div>
 
-            <div class="pBar">
-                <div class="info"> <span>Git Hub</span> </div>
-                <div class="progress-line github"> <span></span> </div>
-            </div>
-
-            <div class="pBar">
-                <div class="info"> <span>Python</span> </div>
-                <div class="progress-line python"> <span></span> </div>
-            </div>
-
-        </div>
-        
-          </div>
-
-    </section>
 
 
 
 <!-- projects section  -->
-<section>
+<!-- <section class="services"id="services">
+  <h2 class="heading">Our<span>Services</span></h2>
+
+
+  
+
+  <div class="services-container">
+      <div class="services-box">
+          <i class='bx bx-code-alt'></i>
+          <h3>Web Development</h3>
+          <p>Motivated designer and developer
+               with experience creating custom websites through PHP and CSS. 
+               Strong collaboration skills and proven history of application development. DHTML and JavaScript. MS Access and MySQL.</p>
+          <a href="#"class="btn">Read More</a>
+      </div>
+
+      <div class="services-box">
+          <i class='bx bx-crop' ></i>
+          <h3>UI/UX Design</h3>
+          <p>You cannot make a good design if you do not understand people; design is made for people.</p>
+          <a href="#"class="btn">Read More</a>
+      </div>
+  
+      <div class="services-box">
+          <i class='bx bxl-instagram-alt' ></i>
+          <h3>App Design</h3>
+          <p>I'm UI/UX Designer with a great passion to my work. The main goal is to create modern, attractive and user-friendly interfaces and find creative and simple solutions for your business.
+              </p>
+          <a href="#"class="btn">Read More</a>
+      </div>
+  </div>
+</section> -->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="portfolio"id="portfolio">
+  <h2 class="heading">Latest<span>Project</span></h2>
+  <div class="portfolio-container">
+      <div class="portfolio-box">
+          <img src="myproject/image/jan-vlacuha-Rns_A8bJ_dQ-unsplash.jpg"alt="">
+          <div class="portfolio-layer">
+              <h4>Perssonal Portfolio</h4>
+              <p>In this project I try making my own portfolio website for myself. Showcase my projects, my social media handles, my experience on the website.</p>
+              <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+      </div>
+      <div class="portfolio-box">
+          <img src="myproject/image/austin-poon-JO_S6ewBqAk-unsplash.jpg"alt="">
+          <div class="portfolio-layer">
+              <h4>dynamics website Deployment in AWS</h4>
+              <p>In this project I try deployed dynamics website in AWS.so that we can add deleted the data by connecting to databases.</p>
+              <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+      </div>
+      <div class="portfolio-box">
+          <img src="myproject/image/nubelson-fernandes--Xqckh_XVU4-unsplash.jpg"alt="">
+          <div class="portfolio-layer">
+              <h4>Iris flower detection</h4>
+              <p>In this project I try detect the iris flower type by using machine learning predication model.And deployed in streamlit python</p>
+              <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+      </div>
+      <div class="portfolio-box">
+          <img src="myproject/image/kevin-canlas-QYHehJ9Iovs-unsplash.jpg"alt="">
+          <div class="portfolio-layer">
+              <h4>Cab Booking </h4>
+              <p>In this project we can book a cab by using java.</p>
+              <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+      </div>
+  </div>
 </section>
+
+
 
 
 
@@ -160,5 +294,15 @@
 
 
     <script src="./script.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+const typed = new Typed('.multiple-text',{
+  strings:['Desginer ','Frontend developer','Coder'],
+  typeSpeed:85,
+  backSpeed:85,
+  backDelay:1000,
+  loop:true
+});
+</script>
 </body>
 </html>
