@@ -13,10 +13,10 @@
  }
 
  :root {
-    --bg-color:#8AB6F9;
-    --second-bg-color:#00246B;
-    --text-color:#fff;
-    --main-color:#0ef; 
+    --bg-color:#6FA1BB;
+    --second-bg-color:#0C0D0D;
+    --text-color:#ffffff;
+    --main-color:rgb(0, 0, 0); 
  }
 
  html{
@@ -27,7 +27,7 @@
 
  body{
    background: var(--bg-color);
-   color: whitesmoke;
+   color: rgb(0, 0, 0);
  }
 
  section{
@@ -74,7 +74,7 @@
  .navbar a:hover,
  .navbar a.active{
 
-color: #80867b;
+color: #61d800;
 }
 
  #menu-icon{
@@ -105,7 +105,7 @@ color: #80867b;
  }
 
  span{
-    color: #61b752;
+    color: #000000;
  }
  .home-content h1{
     font-size: 5.6rem;
@@ -115,7 +115,7 @@ color: #80867b;
 
 .multiple-text{
   font-size: 800;
-  color: white;
+  color: #61d800;
   text-transform: capitalize;
 
 }
@@ -161,7 +161,10 @@ color: #80867b;
  .heading{
     text-align: center;
     font-size: 4.5rem;
-    
+    color: #61d800;
+ }
+ .heading span{
+   color: #eae9e9;
  }
 
  .about-content h2{
@@ -178,6 +181,14 @@ color: #80867b;
     margin: 2rem 0 3rem;
  }
 
+.about-text{
+   color: #F6EDE3;
+}
+.about-header{
+   color: #F6EDE3;
+}
+
+
  @media  (max-width:600px) {
    .about{
       width: auto;
@@ -192,76 +203,221 @@ color: #80867b;
 /* SKILLS */
 
 
-.skills {
-   text-align: center;
-  height: auto;
-
-  }
- .skills-heading{
-   font-size: 4.5rem;
- }
-
- 
- .skills-section {
+.container {
    display: flex;
    justify-content: center;
- }
- 
- .skills-list {
-   list-style-type: none;
-   padding: 0;
- }
- 
- .skills-list .group1,
- .skills-list .group2 {
-   display: flex;
-   flex-wrap: wrap;
- }
- 
- .skills-list li {
-   margin: 5px;
- }
- 
- .skills-list li img {
-    height: 200px;
-    width:  200px;
-   margin: 10px;
-   padding: 10px;
+   width: 100%;
    border-radius: 10px;
-   background-color: #eae9e9; 
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
-   transition: 1s ease;
+   padding: 15px 0;
+   height: 100vh;
+}
 
+.skills-header{
+   text-align: center;
+   font-size: 4.5rem;
+   margin-top: 75px;
 
- }
- .skills-list li img:hover {
-   border-radius:25%;
-   transition: 1s ease;
-   -webkit-transform: scale(0.8);
-   -ms-transform: scale(0.8);
-   transform: scale(0.8);
-   transition: 1s ease;
+}
+.skills-header span{
+color: #61d800;
+}
+
+.column {
+   flex: 1;
+   margin: 0 10px; /* Adjust horizontal margin */
+}
+
+.container h1 {
+   text-align: center;
+   font-weight: 600;
+   margin-bottom: 30px;
+}
+
+.container .skill {
+   margin-bottom: 30px;
+   width: 100%;
+   align-items: center;
+   position: relative;
+}
+
+.container .skill h3 {
+   display: inline-block;
+   margin-bottom: 1px;
+}
+
+.container .skill h4 {
+   float: right;
+}
+
+.container .skill .skill-bar {
+   position: absolute;
+   top: 30px;
+   left: 0;
+   width: 100%;
+   height: 10px;
+   border-radius: 15px;
+   background: #000000;
+}
+
+.container .skill .fill-bar {
+   position: absolute;
+   top: 30px;
+   left: 0;
+   height: 10px;
+   border-radius: 15px;
+   background: #61d800;
+}
+
+.container .skill .html {
+   animation: html 2s;
+   width: 90%;
+}
+
+.container .skill .css {
+   animation: css 2s;
+   width: 89%;
+}
+
+.container .skill .javascript {
+   animation: javascript 2s;
+   width: 77%;
+}
+
+.container .skill .bootstrap {
+   animation: bootstrap 2s;
+   width: 91%;
+}
+
+.container .skill .react {
+   animation: react 2s;
+   width: 80%;
+}
+
+.container .skill .github {
+   animation: github 2s;
+   width: 79%;
+}
+
+.container .skill .python {
+   animation: python 2s;
+   width: 70%;
+}
+
+.container .skill .mongodb {
+   animation: mongodb 2s;
+   width: 82%;
+}
+
+.container .skill .node {
+   animation: node 2s;
+   width: 80%;
+}
+
+@keyframes html {
+   from {
+       width: 0;
    }
+   to {
+       width: 90%;
+   }
+}
 
-   @media  (max-width:600px) {
+@keyframes css {
+   from {
+       width: 0;
+   }
+   to {
+       width: 89%;
+   }
+}
 
-      .skills-list .group1,
-      .skills-list .group2 {
-         display: flex;
-         justify-content:space-around; 
-      }
-      .skills-list li img {
-         height: 100px;
-         width: 100px;
+@keyframes javascript {
+   from {
+       width: 0;
+   }
+   to {
+       width: 77%;
+   }
+}
 
-      }
+@keyframes bootstrap {
+   from {
+       width: 0;
+   }
+   to {
+       width: 91%;
+   }
+}
 
+@keyframes react {
+   from {
+       width: 0;
+   }
+   to {
+       width: 80%;
+   }
+}
+
+@keyframes github {
+   from {
+       width: 0;
+   }
+   to {
+       width: 79%;
+   }
+}
+
+@keyframes python {
+   from {
+       width: 0;
+   }
+   to {
+       width: 70%;
+   }
+}
+
+@keyframes mongodb {
+   from {
+       width: 0;
+   }
+   to {
+       width: 82%;
+   }
+}
+
+@keyframes node {
+   from {
+       width: 0;
+   }
+   to {
+       width: 80%;
+   }
+}
+
+
+@media screen and (max-width: 480px) {
+   .container  {
+      width: 100%; /* Adjusted width for wider bar in responsive mode */
+      display: flex;
+      flex-direction: column;
+      margin: 0 10px 0 10px 0;
       
-   }
+  }
+
+
+
+}
+   
+
+
+
+
+
+   /* services section  */
     
 
  .services{
-   background: var(  --second-bg-color);
+   background: var( --second-bg-color);
    height: auto;
 
  }
@@ -286,30 +442,24 @@ color: #80867b;
    transition: .5s ease;
  }
  .services-container .services-box:hover{
-   border-color: var(--main-color);
+   border-color: #61d800;
    transform: scale(1.02);
  }
  .services-box i{
    font-size: 7rem;
    color: var(--main-color);
+   color: #61d800;
+
  }
  .services-box h3{
    font-size: 2.6rem;
+   color: #F6EDE3;
  }
  .services-box p{
    font-size: 1.6rem;
    margin: 1rem 0 3rem;
+   color: #61b752;
  }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -336,7 +486,7 @@ color: #80867b;
    overflow: hidden;
    display: flex;
    width: auto;
-height: 275px;
+   height: 275px;
 
 
 }
@@ -355,7 +505,7 @@ height: 275px;
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(rgba(0,0,0, .1),var(--main-color));
+   background: linear-gradient(rgba(255, 237, 237, 0.1),rgba(140, 212, 107, 0.982));
    display: flex;
    justify-content: center;
    align-items: center;
@@ -448,7 +598,19 @@ height: 275px;
 
 .footer-iconTop a i{
    font-size: 2.4rem;
-   color: var(--second-bg-color);
+   color: #61b752;
+}
+.contact-info{
+   color: #61b752;
+
+}
+.contact-info span{
+   color: #61b752;
+
+}
+
+.copyright{
+   color: #61b752;
 }
 
 @media (max-width:1200px){
