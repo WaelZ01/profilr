@@ -154,9 +154,9 @@ color: #61d800;
    .home {
      display: grid;
      grid-template-columns: auto;
-     grid-template-rows: auto auto; /* Add rows for the image and text */
+     grid-template-rows: auto auto; 
      align-items: center;
-     justify-items: center; /* Center items horizontally */
+     justify-items: center; 
      gap: 10px;
    }
 
@@ -277,7 +277,7 @@ color: #61d800;
 
 .column {
    flex: 1;
-   margin: 0 10px; /* Adjust horizontal margin */
+   margin: 0 10px; 
 }
 
 .container h1 {
@@ -452,7 +452,7 @@ color: #61d800;
 
 @media screen and (max-width: 480px) {
    .container  {
-      width: 100%; /* Adjusted width for wider bar in responsive mode */
+      width: 100%; 
       display: flex;
       flex-direction: column;
       margin: 0 10px 0 10px 0;
@@ -803,12 +803,12 @@ color: #61d800;
 
 @keyframes scroll-watcher {
    to {
-       transform: scale(1 1 );
+       transform: scaleX(1);
    }
 }
 
 .scroll-watcher {
-   height: 8px;
+   height: 6px;
    position: fixed;
    top: 0;
    z-index: 1000;
