@@ -1,28 +1,13 @@
-const toggleButton = document.getElementsByClassName('toggle-button')[0]
-const navbarLinks = document.getElementsByClassName('navbar-links')[0]
-
-toggleButton.addEventListener('click', () => {
-  navbarLinks.classList.toggle('active')
-})
 
 
+// const toggleButton = document.getElementsByClassName('toggle-button')[0]
+// const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Get references to the menu icon and the navigation menu
-  const menuIcon = document.getElementById("menu-icon");
-  const navbar = document.querySelector(".navbar");
-
-  // Check if menu icon and navbar exist
-  if (menuIcon && navbar) {
-    // Toggle the 'active' class on the navigation menu when the menu icon is clicked
-    menuIcon.addEventListener("click", function() {
-      navbar.classList.toggle("active");
-    });
-  } else {
-    console.error("Menu icon or navbar not found!");
-  }
+document.querySelector('.list-icon').addEventListener('click', function () {
+  document.querySelector('.navbar').classList.toggle('active');
 });
+
 
 
 
@@ -31,11 +16,20 @@ let navLinks=document.querySelectorAll('header nav a');
 
 
 
-ScrollReveal({
-    reset:true,
-    distance:'80px',
-    duration:2000,
-    delay:200
+// ScrollReveal({
+//     reset:true,
+//     distance:'80px',
+//     duration:2000,
+//     delay:200
+// });
+
+window.addEventListener('scroll', function() {
+  var scrollTop = window.scrollY;
+  var windowHeight = window.innerHeight;
+  var documentHeight = document.body.clientHeight;
+  var scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+  var scrollWatcher = document.querySelector('.scroll-watcher');
+  scrollWatcher.style.width = scrollPercentage + '%';
 });
 
 

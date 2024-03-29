@@ -56,8 +56,9 @@
     color: var(--text-color);
     font-weight:600;
     cursor:pointer;
-  
+   color: #61d800;
  }
+
  header a{
   text-decoration: none;
  }
@@ -67,9 +68,7 @@
     margin-left: 4rem;
     transition: .3s;
  }
- .navbar.active{
-   display: none;
- }
+ 
 
  .navbar a:hover,
  .navbar a.active{
@@ -77,11 +76,43 @@
 color: #61d800;
 }
 
- #menu-icon{
-    font-size: 3.6rem;
-    color: var(--text-color);
-    display: none;
- }
+.list-icon {
+   display: none; 
+}
+
+@media (max-width: 768px) {
+   .list-icon {
+       display: block;
+       color:#61d800;
+       float: right;
+      
+   }
+
+   .list-icon i {
+       font-size: 30px; 
+   }
+   .logo{
+      margin-left: 20px;
+   }
+
+
+
+   .nav-items {
+       display: none; 
+       float: right;
+   }
+
+   .navbar.active  {
+      background-color: #0C0D0D;
+
+   }
+   .navbar.active a{
+
+      text-align: center;
+
+   }
+}
+
 
  .home{
     display: grid;
@@ -119,17 +150,38 @@ color: #61d800;
   text-transform: capitalize;
 
 }
-
-@media  (max-width:900px) {
-   .my__image{
-      height: 300px;
+@media (max-width: 900px) {
+   .home {
+     display: grid;
+     grid-template-columns: auto;
+     grid-template-rows: auto auto; /* Add rows for the image and text */
+     align-items: center;
+     justify-items: center; /* Center items horizontally */
+     gap: 10px;
    }
-   
-}
+
+   .home-img{
+      width: auto;
+      text-align: center;
+
+   }
+ 
+   .my__image {
+     max-width: 75%;
+     height: auto;
+   }
+ 
+   .home-content {
+     align-self: center; 
+   }
+ }
+
+
+
 @media  (max-width:600px ) {
    .home{
       display: grid;
-      grid-template-columns: 400px;
+      grid-template-columns: auto;
       align-items: center;
       width: auto;
    }
@@ -210,6 +262,7 @@ color: #61d800;
    border-radius: 10px;
    padding: 15px 0;
    height: 100vh;
+   
 }
 
 .skills-header{
@@ -257,6 +310,7 @@ color: #61d800;
    height: 10px;
    border-radius: 15px;
    background: #000000;
+     transition: 2s all ease;
 }
 
 .container .skill .fill-bar {
@@ -271,6 +325,7 @@ color: #61d800;
 .container .skill .html {
    animation: html 2s;
    width: 90%;
+   
 }
 
 .container .skill .css {
@@ -743,4 +798,23 @@ color: #61d800;
    color: #61b752;
    margin-top: -10px;
    display: block;
+}
+
+
+@keyframes scroll-watcher {
+   to {
+       transform: scale(1 1 );
+   }
+}
+
+.scroll-watcher {
+   height: 8px;
+   position: fixed;
+   top: 0;
+   z-index: 1000;
+   background-color: #61d800;
+   width: 0; 
+   transform: scaleX(0);
+   transform-origin: left;
+   animation: scroll-watcher 1s linear forwards; 
 }
