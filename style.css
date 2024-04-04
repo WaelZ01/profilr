@@ -186,6 +186,7 @@ color: #61d800;
       width: 100%;
       justify-content: center;
       align-items: center;
+      height: auto;
    }
    .my__image{
       align-items: center;
