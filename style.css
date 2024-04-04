@@ -184,8 +184,8 @@ color: #61d800;
       display: flex;
       flex-direction: column;
       gap: 10px;
-
       width: 100%;
+      justify-content: center;
    }
    .my__image{
       align-items: center;
