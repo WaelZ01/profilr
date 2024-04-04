@@ -181,10 +181,10 @@ color: #61d800;
 
 @media  (max-width:600px ) {
    .home{
-      display: grid;
-      grid-template-columns: 250px;
-      grid-template-rows: 250px 100px;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
       width: 100%;
    }
    .my__image{
