@@ -250,6 +250,35 @@ color: #61d800;
    }
 }
 
+.animation{
+   opacity: 0;
+   transform: translateX(-300px);
+   transition: all 1s ease-out;
+   transition-delay: 0.4s;
+}
+   
+.animation.active {
+   opacity: 1;
+   transform: translateX(0);
+
+}
+
+.text{
+   opacity: 0;
+   transform: translateY(200px);
+   transition: all 0.7s ease-out;
+   transition-delay: 0.4s;
+
+}
+.text.textAnime{
+   opacity: 1;
+   transform: translateX(0);
+
+}
+
+
+
+   
 
 
 
@@ -267,6 +296,8 @@ color: #61d800;
    height: 100vh;
    
 }
+
+
 
 .skills-header{
    text-align: center;
@@ -313,7 +344,7 @@ color: #61d800;
    height: 10px;
    border-radius: 15px;
    background: #000000;
-     transition: 2s all ease;
+   transition: 3s all ease;
 }
 
 .container .skill .fill-bar {
@@ -323,7 +354,91 @@ color: #61d800;
    height: 10px;
    border-radius: 15px;
    background: #61d800;
+   transition: 2s all ease;
+
 }
+
+
+.skillAnime1{
+   opacity: 0;
+   transform: translateY(-70px);
+   transition: all 0.5s ease-out;
+   transition-delay: 0.8s;
+
+}
+.skillAnime1.skillActive1{
+   opacity: 1;
+   transform: translateY(100px);
+   transition-delay: 1s;
+
+
+
+}
+
+.skillAnime2{
+   opacity: 0;
+   transform: translateX(70px);
+   transition: all 0.5s ease-out;
+   transition-delay: 0.8s;
+
+}
+.skillAnime2.skillActive2{
+   opacity: 1;
+   transform: translateY(155px);
+   transition-delay: 1s;
+}
+
+
+ .serviesAnime {
+   opacity: 0;
+   transform: translateX(-70px);
+   transition: all 0.5s ease-out;
+   transition-delay: 0.5s;
+ }
+ 
+ .serviesAnime.serviesActive {
+   opacity: 1;
+   transform: translateX(0);
+ }
+
+ 
+ .serviesAnime1 {
+   opacity: 0;
+   transform: translateX(70px);
+   transition: all 0.5s ease-out;
+   transition-delay: 0.1s;
+ }
+ 
+ .serviesAnime1.serviesActive1 {
+   opacity: 1;
+   transform: translateX(0);
+ }
+
+ 
+
+ .portfolio-box {
+   opacity: 0;
+   transform: translateY(70px);
+   transition: all 0.5s ease-out;
+ }
+ 
+ .project1 {
+   transition-delay: 0.5s;
+ }
+ 
+ .project2 {
+   transition-delay: 0.5s;
+ }
+ 
+ .project3 {
+   transition-delay: 0.s;
+ }
+ 
+ .portfolio-box.active {
+   opacity: 1;
+   transform: translateX(0);
+ }
+
 
 .container .skill .html {
    animation: html 2s;
@@ -459,6 +574,7 @@ color: #61d800;
       display: flex;
       flex-direction: column;
       margin: 0 10px 0 10px 0;
+      height: 100vh;
       
   }
 
