@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Wael Alaa Zakaria Mohamed Masoud — CV / Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+
+        :root {
+            --bg-base: #1E1E2E;
+            --bg-mantle: #181825;
+            --accent-mauve: #CBA6F7;
+            --accent-peach: #FAB387;
+            --text-main: #CDD6F4;
+            --text-sub: #A6ADC8;
+            --border-subtle: rgba(205, 214, 244, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.58;
+            padding: 2.5rem 1.5rem 4.5rem;
+        }
+
+        .cv-toolbar {
+            max-width: 860px;
+            margin: 0 auto 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toolbar-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-mantle);
+            color: var(--text-main);
+            transition: all 0.25s ease;
+        }
+
+        .toolbar-btn.primary {
+            background: linear-gradient(135deg, var(--accent-mauve), var(--accent-peach));
+            color: var(--bg-mantle);
+            border: none;
+        }
+
+        .toolbar-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .cv-sheet {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg-mantle);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 3.2rem 3.4rem;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+        }
+
+        .cv-header {
+            text-align: center;
+            padding-bottom: 1.6rem;
+            border-bottom: 2px solid rgba(203, 166, 247, 0.3);
+            margin-bottom: 1.8rem;
+        }
+
+        .cv-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-contact-line {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .cv-contact-line a {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .cv-contact-line a:hover {
+            color: var(--accent-mauve);
+        }
+
+        .cv-headline-tag {
+            display: inline-block;
+            margin-top: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--accent-peach);
+            background: rgba(250, 179, 135, 0.12);
+            border: 1px solid rgba(250, 179, 135, 0.3);
+            padding: 0.3rem 0.95rem;
+            border-radius: 999px;
+        }
+
+        .cv-section {
+            margin-bottom: 1.6rem;
+        }
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-mauve);
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 0.85rem;
+        }
+
+        .cv-summary {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        .cv-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-item-head h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cv-item-head span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-peach);
+        }
+
+        .cv-subline {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .cv-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-top: 0.35rem;
+        }
+
+        .cv-bullets li {
+            position: relative;
+            padding-left: 1.15rem;
+            font-size: 0.92rem;
+            color: var(--text-sub);
+        }
+
+        .cv-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-peach);
+            font-weight: 700;
+        }
+
+        .cv-bullets li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .cv-two-col {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 680px) {
+            .cv-sheet { padding: 1.8rem; }
+            .cv-two-col { grid-template-columns: 1fr; gap: 1.4rem; }
+        }
+
+        @media print {
+            @page {
+                margin: 12mm;
+            }
+            body {
+                background: #FFFFFF;
+                color: #111827;
+                padding: 0;
+                font-size: 11pt;
+            }
+            .cv-toolbar { display: none; }
+            .cv-sheet {
+                background: #FFFFFF;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .cv-header {
+                border-bottom-color: #1F4E79;
+            }
+            .cv-name, .cv-item-head h3, .cv-contact-line a, .cv-bullets li strong {
+                color: #111827;
+            }
+            .cv-section-title {
+                color: #1F4E79;
+                border-bottom-color: #111827;
+            }
+            .cv-item-head span, .cv-headline-tag {
+                color: #1F4E79;
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+            .cv-summary, .cv-subline, .cv-bullets li, .cv-contact-line {
+                color: #1F2937;
+            }
+            .cv-bullets li::before {
+                color: #111827;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-toolbar">
+        <a href="./index.html" class="toolbar-btn">
+            <i class='bx bx-left-arrow-alt'></i> Back to Portfolio
+        </a>
+        <button type="button" class="toolbar-btn primary" onclick="window.print()">
+            <i class='bx bx-printer'></i> Print / Save as PDF
+        </button>
+    </div>
+
+    <main class="cv-sheet">
+        <header class="cv-header">
+            <h1 class="cv-name">Wael Alaa Zakaria Mohamed Masoud</h1>
+            <div class="cv-contact-line">
+                <span>Bahrain</span>
+                <span>|</span>
+                <a href="tel:+97333847384">+97333847384</a>
+                <span>|</span>
+                <a href="mailto:wael88masoud@gmail.com">wael88masoud@gmail.com</a>
+                <span>|</span>
+                <a href="https://github.com/WaelZ01" target="_blank" rel="noopener noreferrer">github.com/WaelZ01</a>
+            </div>
+            <div class="cv-contact-line">
+                <span>LinkedIn: <a href="https://www.linkedin.com/in/wael-masoud-b92911413" target="_blank" rel="noopener noreferrer">linkedin.com/in/wael-masoud-b92911413</a></span>
+            </div>
+            <span class="cv-headline-tag">Cybersecurity Student | IT | Full-Stack Web Developer | Seeking Internship</span>
+        </header>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Profile</h2>
+            <p class="cv-summary">
+                Cybersecurity student with hands-on experience in network configuration, Python programming, and front-end / full-stack web development, seeking an internship to apply technical problem-solving skills to real-world IT and security challenges.
+            </p>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Education</h2>
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <h3>Bahrain Polytechnic</h3>
+                    <span>2024 – Expected 2028</span>
+                </div>
+                <p class="cv-subline">Bachelor of Information and Communications Technology (B.ICT) — Major: <strong>Cybersecurity</strong></p>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            <ul class="cv-bullets">
+                <li><strong>Cybersecurity:</strong> Cybersecurity concepts, security fundamentals</li>
+                <li><strong>Networking:</strong> Networking concepts, IPv4/IPv6, VLANs, routing (OSPF, EIGRP, VLSM)</li>
+                <li><strong>Cisco:</strong> Cisco Packet Tracer, router and switch configuration</li>
+                <li><strong>Security &amp; Networking:</strong> Network security and troubleshooting</li>
+                <li><strong>Programming &amp; Web:</strong> Python, JavaScript, React.js, Node.js, Express.js, MongoDB, HTML, CSS, Flexbox, CSS Grid, Bootstrap</li>
+                <li><strong>Tools &amp; Build:</strong> PyInstaller, Git &amp; GitHub, Microsoft Office, Visual Studio Code</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Projects</h2>
+
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <h3>Front-End Web Hosting Interface</h3>
+                    <span>October 2026</span>
+                </div>
+                <ul class="cv-bullets">
+                    <li>Developed a responsive front-end layout for a multi-section web hosting website using HTML, CSS, Flexbox, and CSS Grid.</li>
+                    <li>Implemented advanced UI elements including absolute positioning and visual effects.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <h3>Cisco Networking Labs</h3>
+                    <span>March 2026</span>
+                </div>
+                <ul class="cv-bullets">
+                    <li>Implemented IPv4 and IPv6 addressing and subnetting using VLSM.</li>
+                    <li>Configured VLANs, static routing, OSPF, and EIGRP using Cisco Packet Tracer.</li>
+                    <li>Executed network configuration and troubleshooting.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <h3>Full-Stack &amp; Front-End Web Applications (Wild Wonders, Git Guardians, Memory Card Game)</h3>
+                    <span>2024</span>
+                </div>
+                <ul class="cv-bullets">
+                    <li>Built a React.js species discovery application (Wild Wonders), a Node.js/Express hotel reservation platform (Git Guardians), and an interactive JavaScript memory game.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cv-two-col">
+            <section class="cv-section">
+                <h2 class="cv-section-title">Certifications &amp; Courses</h2>
+                <div class="cv-item">
+                    <div class="cv-item-head">
+                        <h3>Software Engineering Immersive — General Assembly</h3>
+                        <span>25/01/2024</span>
+                    </div>
+                    <p class="cv-subline">Full-stack software engineering program covering front-end and back-end web development.</p>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-section-title">Languages</h2>
+                <ul class="cv-bullets">
+                    <li><strong>Arabic:</strong> Native</li>
+                    <li><strong>English:</strong> B2</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>

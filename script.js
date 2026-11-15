@@ -86,7 +86,7 @@ termTabs.forEach((tab) => {
 
 if (termRunBtn && termOutput) {
     const messages = [
-        "Wael Alaa — Frontend & Full-Stack Developer (Available)",
+        "Wael Alaa — Web Developer & Cybersecurity Student",
         "Stack verified: React, JS, Node.js, Express, MongoDB",
         "Direct reach: wael88masoud@gmail.com | +973-33847384"
     ];
@@ -179,7 +179,7 @@ if (typeof Typed !== 'undefined' && document.querySelector('.multiple-text')) {
         strings: [
             'Frontend Developer',
             'React.js Engineer',
-            'UI & Web Designer',
+            'Cybersecurity Student',
             'Full-Stack Builder'
         ],
         typeSpeed: 65,
