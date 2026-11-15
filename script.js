@@ -1,178 +1,190 @@
-document.querySelector('.list-icon').addEventListener('click', function () {
-  document.querySelector('.navbar').classList.toggle('active');
-});
+// 1. Mobile Navigation Drawer
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
+const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
 
-window.addEventListener('scroll', function() {
-  var scrollTop = window.scrollY;
-  var windowHeight = window.innerHeight;
-  var documentHeight = document.body.clientHeight;
-  var scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-  var scrollWatcher = document.querySelector('.scroll-watcher');
-  scrollWatcher.style.width = scrollPercentage + '%';
-});
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const sections = document.querySelectorAll('.animation ');
-//   function checkPosition() {
-//       sections.forEach((animation) => {
-
-//       const windowHeight = window.innerHeight;
-//       // This gets the height of the viewport (the visible area of the browser window).
-//       const sectionTop = animation.getBoundingClientRect().top;
-//       // This gets the distance between the top of the section and the top of the viewport.
-
-//       if (sectionTop < windowHeight * 0.75) {
-//         // If the top of the section is less than 75% of the viewport height from the top of the viewport...
-        
-//         animation.classList.add('active');
-//         // ...the 'active' class is added to the section, making it visible with a fade-in effect.
-//       } else {
-//         // If the top of the section is more than 75% of the viewport height from the top of the viewport...
-        
-//         animation.classList.remove('active');
-//         // ...the 'active' class is removed from the section, hiding it.
-//       }
-//     });
-//   }
-
-//   window.addEventListener('scroll', checkPosition);
-//   // This adds an event listener to the window that listens for scroll events. When the user scrolls, the 'checkPosition' function is called.
-  
-//   window.addEventListener('resize', checkPosition);
-//   // This adds an event listener to the window that listens for resize events. When the window is resized, the 'checkPosition' function is called.
-
-//   checkPosition();
-//   // This initially calls the 'checkPosition' function to determine the initial state of the sections when the page loads.
-// });
-
-
-
-const the_animation = document.querySelectorAll('.animation')
-const the_animation1 = document.querySelectorAll('.text')
-const the_animation2 = document.querySelectorAll('.skillAnime1')
-const the_animation3 = document.querySelectorAll('.skillAnime2')
-const the_animation4 = document.querySelectorAll('.serviesAnime')
-const the_animation5 = document.querySelectorAll('.serviesAnime1')
-const the_animation6 = document.querySelectorAll('.projectAnime')
-const portfolioBoxes = document.querySelectorAll('.portfolio-box');
-
-
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-          entry.target.classList.add('active')
-      }
-          else {
-              entry.target.classList.remove('active')
-          }
-
-           if (entry.isIntersecting) {
-          entry.target.classList.add('textAnime')
-      }
-          else {
-              entry.target.classList.remove('textAnime')
-          }
-
-
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active')
+if (menuToggle && navbar) {
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        if (menuIcon) {
+            menuIcon.classList.toggle('bx-menu');
+            menuIcon.classList.toggle('bx-x');
         }
-            else {
-                entry.target.classList.remove('active')
+    });
+
+    navbar.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            if (menuIcon) {
+                menuIcon.classList.add('bx-menu');
+                menuIcon.classList.remove('bx-x');
             }
+        });
+    });
+}
 
-  
-             if (entry.isIntersecting) {
-            entry.target.classList.add('skillActive1')
+// 2. Scroll Progress, Floating Header & Active Section Link
+const header = document.getElementById('header');
+const scrollWatcher = document.querySelector('.scroll-watcher');
+const trackedSections = document.querySelectorAll('section[id], footer[id]');
+const navLinks = document.querySelectorAll('.navbar a');
+
+function onScrollUpdate() {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+    if (scrollWatcher) {
+        scrollWatcher.style.width = `${pct}%`;
+    }
+
+    if (header) {
+        header.classList.toggle('scrolled', scrollTop > 30);
+    }
+
+    let currentSection = 'home';
+    trackedSections.forEach((sec) => {
+        if (scrollTop >= sec.offsetTop - 200) {
+            currentSection = sec.getAttribute('id');
         }
-            else {
-                entry.target.classList.remove('skillActive1')
-            } 
-            
-            
+    });
+
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === `#${currentSection}`);
+    });
+}
+
+window.addEventListener('scroll', onScrollUpdate, { passive: true });
+onScrollUpdate();
+
+// 3. Interactive Developer Terminal Tabs & Run Button
+const termTabs = document.querySelectorAll('.term-tab');
+const termPanes = {
+    profile: document.getElementById('tab-profile'),
+    stack: document.getElementById('tab-stack'),
+    contact: document.getElementById('tab-contact')
+};
+const termOutput = document.getElementById('term-output');
+const termRunBtn = document.getElementById('term-run-btn');
+
+termTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        termTabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        Object.entries(termPanes).forEach(([key, pane]) => {
+            if (pane) pane.classList.toggle('active', key === target);
+        });
+
+        if (termOutput) {
+            termOutput.innerHTML = `<i class='bx bx-check-circle'></i> Loaded ${tab.textContent}`;
+        }
+    });
+});
+
+if (termRunBtn && termOutput) {
+    const messages = [
+        "Wael Alaa — Frontend & Full-Stack Developer (Available)",
+        "Stack verified: React, JS, Node.js, Express, MongoDB",
+        "Direct reach: wael88masoud@gmail.com | +973-33847384"
+    ];
+    let msgIndex = 0;
+
+    termRunBtn.addEventListener('click', () => {
+        termOutput.innerHTML = `<i class='bx bx-terminal'></i> ${messages[msgIndex]}`;
+        msgIndex = (msgIndex + 1) % messages.length;
+    });
+}
+
+// 4. Filterable Tech Stack Grid
+const skillFilterBtns = document.querySelectorAll('[data-skill-filter]');
+const skillTiles = document.querySelectorAll('.skill-tile');
+
+skillFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.skillFilter;
+        skillFilterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        skillTiles.forEach((tile) => {
+            const match = filter === 'all' || tile.dataset.category === filter;
+            tile.classList.toggle('hidden', !match);
+        });
+    });
+});
+
+// 5. Filterable Projects Case Studies
+const projectFilterBtns = document.querySelectorAll('[data-project-filter]');
+const projectCases = document.querySelectorAll('.project-case');
+
+projectFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.projectFilter;
+        projectFilterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCases.forEach((card) => {
+            const match = filter === 'all' || card.dataset.projectCat === filter;
+            card.classList.toggle('hidden', !match);
+        });
+    });
+});
+
+// 6. One-Click Copy to Clipboard for Email & Phone
+document.querySelectorAll('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+        const textToCopy = btn.dataset.copy;
+        if (!textToCopy) return;
+
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            const icon = btn.querySelector('i');
+            const label = btn.querySelector('span');
+            if (icon) icon.className = 'bx bx-check';
+            if (label) label.textContent = 'Copied!';
+
+            setTimeout(() => {
+                if (icon) icon.className = 'bx bx-copy';
+                if (label) label.textContent = 'Copy';
+            }, 1800);
+        } catch {
+            // Fallback if clipboard permission denied
+        }
+    });
+});
+
+// 7. Scroll Reveal Observer
+const revealItems = document.querySelectorAll(
+    '.reveal-up, .reveal-left, .reveal-right, .reveal-scale'
+);
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('skillActive2')
-          }
-              else {
-                  entry.target.classList.remove('skillActive2')
-              }    
+                entry.target.classList.add('in-view');
+            }
+        });
+    },
+    { threshold: 0.12 }
+);
 
-              if (entry.isIntersecting) {
-                entry.target.classList.add('serviesActive');
-              } else {
-                entry.target.classList.remove('serviesActive');
-              }
+revealItems.forEach((el) => revealObserver.observe(el));
 
-              if (entry.isIntersecting) {
-                entry.target.classList.add('serviesActive1');
-              } else {
-                entry.target.classList.remove('serviesActive1');
-              }
-
-              if (entry.isIntersecting) {
-                entry.target.classList.add('projectActive');
-              } else {
-                entry.target.classList.remove('projectActive');
-              }
-              if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-              } else {
-                entry.target.classList.remove('active');
-              }
-           
-  })
-},{ threshold: 0.5
-});
-
-for (let i = 0; i < the_animation.length; i++) {
-  const elements = the_animation[i];
-
-   observer.observe(elements);
- } 
- 
- for (let i = 0; i < the_animation1.length; i++) {
-  const elements = the_animation1[i];
-
-   observer.observe(elements);
- } 
-
- for (let i = 0; i < the_animation2.length; i++) {
-  const elements = the_animation2[i];
-
-   observer.observe(elements);
- } 
-
- 
- for (let i = 0; i < the_animation3.length; i++) {
-  const elements = the_animation3[i];
-
-   observer.observe(elements);
- } 
-
- for (let i = 0; i < the_animation4.length; i++) {
-  const elements = the_animation4[i];
-
-   observer.observe(elements);
- } 
-
-
- for (let i = 0; i < the_animation5.length; i++) {
-  const elements = the_animation5[i];
-
-   observer.observe(elements);
- } 
-
-//  for (let i = 0; i < the_animation6.length; i++) {
-//   const elements = the_animation6[i];
-
-//    observer.observe(elements);
-//  } 
-the_animation6.forEach(element => {
-  observer.observe(element);
-});
-
-portfolioBoxes.forEach((box, index) => {
-  observer.observe(box);
-  box.classList.add(`project${index + 1}`);
-});
+// 8. Typed.js Dynamic Role Text
+if (typeof Typed !== 'undefined' && document.querySelector('.multiple-text')) {
+    new Typed('.multiple-text', {
+        strings: [
+            'Frontend Developer',
+            'React.js Engineer',
+            'UI & Web Designer',
+            'Full-Stack Builder'
+        ],
+        typeSpeed: 65,
+        backSpeed: 45,
+        backDelay: 1500,
+        loop: true
+    });
+}
