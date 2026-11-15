@@ -288,16 +288,29 @@ body {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.12fr 0.88fr;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
     gap: 5.5rem;
     align-items: center;
     width: 100%;
 }
 
+.hero-editorial,
+.hero-showcase,
+.terminal-window,
+.about-visual-card,
+.about-narrative,
+.project-case,
+.channel-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
 .eyebrow-tag {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 0.8rem 1rem;
     padding: 0.65rem 1.4rem;
     background: var(--bg-mantle);
     border: 1px solid var(--border-subtle);
@@ -501,15 +514,17 @@ body {
 .identity-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    background: var(--peach-soft);
-    color: var(--accent-peach);
-    border: 1px solid var(--peach-border);
+    gap: 0.7rem;
+    padding: 0.65rem 1.35rem;
+    background: var(--mauve-soft);
+    color: var(--accent-mauve);
+    border: 1px solid var(--mauve-border);
     border-radius: 999px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.2rem;
     font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Cozy Mocha Terminal Card */
@@ -1345,15 +1360,21 @@ a.channel-value:hover {
 }
 
 @media (max-width: 960px) {
+    .hero {
+        min-height: auto;
+        padding-top: 12rem;
+    }
+
     .hero-grid,
     .about-editorial-grid,
     .project-case,
     .direct-bento-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 3.6rem;
     }
 
     .service-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 1.8rem;
     }
 
@@ -1362,7 +1383,7 @@ a.channel-value:hover {
     }
 
     .pillars-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -1374,8 +1395,8 @@ a.channel-value:hover {
     .navbar {
         position: absolute;
         top: calc(100% + 1rem);
-        left: 6%;
-        right: 6%;
+        left: 5%;
+        right: 5%;
         background: var(--bg-mantle);
         border: 1px solid var(--mauve-border);
         border-radius: var(--radius-lg);
@@ -1397,17 +1418,96 @@ a.channel-value:hover {
     }
 
     .hero-title {
-        font-size: 4.4rem;
+        font-size: 4rem;
+    }
+
+    .editorial-heading {
+        font-size: 3.4rem;
+    }
+
+    .section-top-bar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .terminal-topbar {
+        flex-wrap: wrap;
+        padding: 1.2rem 1.4rem;
+    }
+
+    .terminal-body {
+        padding: 1.6rem;
+        font-size: 1.2rem;
+        min-height: auto;
+    }
+
+    .term-pane {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .terminal-footer {
+        flex-wrap: wrap;
+        padding: 1.2rem 1.4rem;
+    }
+
+    .project-case {
+        padding: 2rem;
+    }
+
+    .project-media {
+        height: 22rem;
+    }
+
+    .service-row {
+        padding: 2.4rem;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     html { font-size: 53%; }
+
     .section, .hero, .footer-section {
         padding-left: 5%;
         padding-right: 5%;
     }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .meta-divider {
+        display: none;
+    }
+
+    .identity-bar {
+        padding: 1.4rem 1.6rem;
+        gap: 1.2rem;
+    }
+
     .identity-pill {
         display: none;
+    }
+
+    .window-dots {
+        display: none;
+    }
+
+    .filter-pills {
+        width: 100%;
+    }
+
+    .filter-btn {
+        flex: 1 1 auto;
+        text-align: center;
     }
 }
